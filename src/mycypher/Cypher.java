@@ -12,16 +12,13 @@ import java.util.HashMap;
  * @author SaltO
  */
 public class Cypher {
-    
-    // A simple cypher program that takes a string and encrypts/decrypts it.
-   
-    
+       
      // <Alphabet Value, Cypher Value>
     private HashMap<Character, Character> encryptMap = new HashMap();
     // <Cypher Value, Alphabet Value>
     private HashMap<Character, Character> decryptMap = new HashMap();
+    
     // 26 letters. It is important that alphabet and cypherValues have same length. 
-    // Better solution can be made.
     private char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private char[] cypherValues = "øælkjhgfdsaqwertyuiopåzxcv".toCharArray();
     
@@ -37,19 +34,16 @@ public class Cypher {
     private void fillEncryptMap() {
          for (int i = 0; i < alphabet.length - 1; i++) {
            encryptMap.put(alphabet[i], cypherValues[i]);
-        }
-         
-         
-        
+        }    
     }
      // Fills the HashMap with cypher and alphabet values as key, value pair.
     private void fillDecryptMap() {
         for (int i = 0; i < alphabet.length - 1; i++) {
             decryptMap.put(cypherValues[i], alphabet[i]);
-        }
-         
+        }   
     }
     
+    // Takes a string and encrypts it with the use of the encryptMap HashMap.
     public String encrypt(String normalText) {
         char[] inputArray = normalText.toLowerCase().toCharArray();
         String textEncrypted = "";
@@ -64,6 +58,7 @@ public class Cypher {
         return textEncrypted.toUpperCase();
     }
     
+    // Takes a string and decrypts it with the use of the decryptMap HashMap.
     public String decrypt(String encryptedText) {
         char[] inputArray = encryptedText.toLowerCase().toCharArray();
         String textDecrypted = "";
@@ -76,15 +71,5 @@ public class Cypher {
         }
         }
         return textDecrypted.toUpperCase();
-    }
-    
-    // Used to validate if character the user input is part of the valid encryption values.
-    
-    
-    
-    
- 
-    
-  
-    
+    }  
 }
